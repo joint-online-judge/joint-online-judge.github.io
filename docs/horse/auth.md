@@ -1,6 +1,6 @@
 # Authentication
 
-The authentication is based on [JWT](https://jwt.io/) (JSON Web Tokens) and [HTTP Authentication Framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication).
+The authentication is based on [JWT](https://jwt.io/) (JSON Web Tokens), [Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) and and [HTTP Authentication Framework](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication).
 
 
 ## Process
