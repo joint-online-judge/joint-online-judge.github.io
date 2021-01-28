@@ -3,6 +3,10 @@ repo_url: https://github.com/joint-online-judge/
 repo_name: joint-online-judge
 theme:
   name: material
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
 plugins:
   - search
 markdown_extensions:
@@ -44,5 +48,3 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-nav:
-  - Introduction: index.md
