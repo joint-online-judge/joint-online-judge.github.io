@@ -15,7 +15,7 @@ Add a CSRF header in the request header for `POST`, `PUT`, `PATCH` and `DELETE` 
 
 `X-CSRF-Token: <csrf>`
 
-If the CSRF header header is not added, access is restricted to `GET` requests.
+If the CSRF header is not added, access is restricted to `GET` requests.
 
 ### HTTP Authentication
 
@@ -34,6 +34,7 @@ Note that you should not save the JWT anywhere (local storage, session storage, 
 ## Security
 
 There are mainly three kinds of attack on web applications:
+
 + man-in-the-middle (MitM) attacks: can be simply avoided with HTTPS protocol
 + [cross-site scripting (XSS) attacks](https://portswigger.net/web-security/cross-site-scripting): the attacker uses malicious JavaScript and sends sensitive data (such as session id or JWT) to another server. 
 + [cross-site request forgery (CSRF) attacks](https://portswigger.net/web-security/csrf): the attacker causes the victim user to carry out an action unintentionally.
