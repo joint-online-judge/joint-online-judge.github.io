@@ -67,3 +67,10 @@ They can be easily installed on most operating systems.
     brew install mongodb-community
     brew install rabbitmq redis
     ```
+
+    Start them with
+    ```
+    brew services start mongodb-community
+    brew services start redis
+    brew services start rabbitmq
+    ```
