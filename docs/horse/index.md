@@ -13,7 +13,7 @@ They can be easily installed on most operating systems.
     
     Note that  python3.7+ is available as `python3` in Debian 10+ or Ubuntu 20.04+ 
     in the official package repository. 
-
+    
     If you are using an OS with a lower version, you need to change the commands below.
     
     ```bash
@@ -26,7 +26,7 @@ They can be easily installed on most operating systems.
 
     Enjoy the simplicity! OKay it seems that Ubuntu is simpler here, 
     but at least you won't meet the OS version issue.
-
+    
     ```bash
     sudo pacman -Syyu
     sudo pacman -S python3 python3-pip python3-virtualenv
@@ -38,13 +38,13 @@ They can be easily installed on most operating systems.
 
     We recommend `chocolatey` to install the dependencies. 
     Ensure that you are using an administrative Powershell, you can install it by
-
+    
     ```powershell
     Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
     ```
     
     Then run these commands to install everything:
-
+    
     ```powershell
     choco install -y python3
     python -m pip install -U pip
@@ -54,4 +54,16 @@ They can be easily installed on most operating systems.
 
 === "macOS"
 
-    I don't have a Mac, maybe someone else will complete it.
+    We recoment `brew` to install the dependencies. You can install `brew` by
+    ```bash
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    ```
+    
+    Then run these commands to install everything:
+    
+    ```bash
+    brew install python3
+    brew tap mongodb/brew
+    brew install mongodb-community
+    brew install rabbitmq redis
+    ```
