@@ -1,5 +1,6 @@
 site_name: Joint Online Judge
 repo_url: https://github.com/joint-online-judge/
+edit_uri: joint-online-judge.github.io/edit/master/docs/
 repo_name: joint-online-judge
 theme:
   name: material
