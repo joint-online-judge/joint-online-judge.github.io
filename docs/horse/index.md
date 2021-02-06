@@ -74,3 +74,52 @@ They can be easily installed on most operating systems.
     brew services start redis
     brew services start rabbitmq
     ```
+    
+## Setup MongoDB in Replica Mode
+
+We use the "transaction" feature in MongoDB, which is not supported on MongoDB standalone mode. This is because oplog is only enabled in replica mode, and the aborting and committing of a transaction need the oplog.
+
++ In a production environment, it is recommended to create a (at least) 3-member replica set. 
++ In a development environment, a 1-member replica set can be used.
+
+You can either setup a replica set by command line options, or by a configuration file. For simplicity of usage, here we'll introduce how to modify the configuration file.
+
+=== "Linux"
+    A default `/etc/mongod.conf` configuration file is included when using a package manager to install MongoDB.
+
+=== "Windows"
+    A default `<install directory>/bin/mongod.cfg` configuration file is included during the installation.
+
+=== "macOS"
+    A default `/usr/local/etc/mongod.conf` configuration file is included when installing from MongoDB’s official Homebrew tap.
+
+For basic usage of a 1-member replica set, you can set
+
+```text
+replication:
+   replSetName: "rs0"
+```
+
+Here `rs0` is the name of the replica set. There should be a commented `#replication` in the config file and you can modify it.
+
+Then you need to restart the `mongod` service.
+
+=== "Linux"
+    ```bash
+    sudo systemctl stop mongod
+    sudo systemctl start mongod
+    ```
+
+=== "Windows"
+    ```powershell
+    net stop MongoDB
+    net start MongoDB
+    ```
+
+=== "macOS"
+    ```bash
+    brew services stop mongodb-community
+    brew services start mongodb-community
+    ```
+
+For more information, check [deploy-replica-set](https://docs.mongodb.com/manual/tutorial/deploy-replica-set/){target=_blank}.
