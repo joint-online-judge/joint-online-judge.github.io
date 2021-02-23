@@ -40,6 +40,7 @@ There are mainly three kinds of attack on web applications:
 + [cross-site request forgery (CSRF) attacks](https://portswigger.net/web-security/csrf): the attacker causes the victim user to carry out an action unintentionally.
 
 We use these techniques to enhance the security of the website:
+
 + Do not save any sensitive data or token in Local Storage and Session Storage. Use cookies instead.
 + Use the `Secure` attribute so that a cookie is sent to the server only with an encrypted request over the HTTPS protocol, never with unsecured HTTP (except on localhost)
 + Use the `HttpOnly` attribute to prevent access to cookie values via JavaScript.
