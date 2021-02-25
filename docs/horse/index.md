@@ -100,7 +100,7 @@ replication:
    replSetName: "rs0"
 ```
 
-Here `rs0` is the name of the replica set. There should be a commented `#replication` in the config file and you can modify it.
+Here `rs0` is the name of the replica set. There should be a commented `#replication` in the config file, and you can modify it.
 
 Then you need to restart the `mongod` service.
 
@@ -121,5 +121,11 @@ Then you need to restart the `mongod` service.
     brew services stop mongodb-community
     brew services start mongodb-community
     ```
+
+Finally, in the `mongo` shell, run the following command to initialize it as the master node:
+
+```bash
+rs.initiate()
+```
 
 For more information, check [deploy-replica-set](https://docs.mongodb.com/manual/tutorial/deploy-replica-set/){target=_blank}.
