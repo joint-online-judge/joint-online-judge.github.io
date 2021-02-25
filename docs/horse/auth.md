@@ -31,6 +31,70 @@ You can use any HTTP method with HTTP Authentication. You do not need to add the
 
 Note that you should not save the JWT anywhere (local storage, session storage, global variables, DOM element) to prevent XSS attacks.
 
+
+## Why JWT?
+
+> [Introduction of JWT](https://jwt.io/introduction)
+> 
+> JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed.
+
+Another common used authorization method in web application is session. In a session setup, the client (browser) saves a session id (mostly in cookies), and the server saves a map of session id to user information in the database (e.g. redis), or in memory (e.e. memcache). The first method needs an extra table in the database, while the later method can not preserve the data after a server restart.
+
+However, JWT is only saved on client-side and verified on server-side, which means the server doesn't need to save any information about logged-in users. This is called *STATELESS*. What's more, since the server only need to do a verification, no I/O (reading from the database or memory) is involved, the process will be typically faster than session authorization.
+
+There are three parts in JWT, header, payload and signature. Each part is in JSON format and is transformed into base64 form when transmitting.
+
+### Header
+
+> The header typically consists of two parts: the type of the token, which is JWT, and the signing algorithm being used, such as HMAC SHA256 or RSA.
+>
+> For example:
+
+```json
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+```
+
+### Payload
+
+> The second part of the token is the payload, which contains the claims. Claims are statements about an entity (typically, the user) and additional data.
+> 
+> For example:
+
+```json
+{
+  "sub": "5f3cef33c4e40624828cadbf",
+  "iat": 1614167646,
+  "nbf": 1614167646,
+  "jti": "6011ca7b-a7e3-44f3-b61e-81960ded8d72",
+  "exp": 1615377246,
+  "type": "access",
+  "fresh": false,
+  "name": "liuyh615",
+  "scope": "sjtu",
+  "channel": "jaccount"
+}
+```
+
+You can check the meaning of some official claims in [RFC7519](https://tools.ietf.org/html/rfc7519#section-4.1).
+
+### Signature
+
+> To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that.
+> 
+> For example if you want to use the HMAC SHA256 algorithm, the signature will be created in the following way:
+
+```javascript
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  secret)
+```
+
+> The signature is used to verify the message wasn't changed along the way, and, in the case of tokens signed with a private key, it can also verify that the sender of the JWT is who it says it is.
+
 ## Security
 
 There are mainly three kinds of attack on web applications:
