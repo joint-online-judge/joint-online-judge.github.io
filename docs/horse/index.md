@@ -128,4 +128,22 @@ Finally, in the `mongo` shell, run the following command to initialize it as the
 rs.initiate()
 ```
 
+The response should look like:
+
+```bash
+{
+        "info2" : "no configuration specified. Using a default configuration for the set",
+        "me" : "127.0.0.1:27017",
+        "ok" : 1,
+        "$clusterTime" : {
+                "clusterTime" : Timestamp(1614414300, 1),
+                "signature" : {
+                        "hash" : BinData(0,"AAAAAAAAAAAAAAAAAAAAAAAAAAA="),
+                        "keyId" : NumberLong(0)
+                }
+        },
+        "operationTime" : Timestamp(1614414300, 1)
+}
+```
+
 For more information, check [deploy-replica-set](https://docs.mongodb.com/manual/tutorial/deploy-replica-set/){target=_blank}.
