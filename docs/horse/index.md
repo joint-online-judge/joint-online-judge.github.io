@@ -18,6 +18,8 @@ They can be easily installed on most operating systems.
     
     If you fail to install mongodb on Debian, referring to <https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/>.
     
+    **WARNING**: You may install mongodb 3.6 instead of the latest version!
+    
     ```bash
     sudo apt update
     sudo apt install python3 python3-pip python3-virtualenv python3-setuptools
