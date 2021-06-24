@@ -33,9 +33,10 @@ They can be easily installed on most operating systems.
     
     ```bash
     sudo pacman -Syyu
+    sudo pacman -S pacaur
     sudo pacman -S python3 python3-pip python3-virtualenv
     sudo pacman -S rabbitmq redis
-    sudo pacaur -S mongodb-bin
+    pacaur -S mongodb-bin
     ```
 
 === "Windows"
