@@ -32,16 +32,26 @@ Most endpoints under `/auth` use the same set of query parameters:
 
 ## Process
 
-### OAuth Login
+### OAuth2 Login
+
+#### List OAuth2 Clients
+
+You can use this api to get a list of supported OAuth2 clients on the server:
+
+`GET /api/v1/oauth2`
+
+#### Login
 
 First, you should call this api to get a redirect url for the OAuth process:
 
-`GET /api/v1/oauth/<oauth_name>/authorize?response_type=redirect`
+`GET /api/v1/oauth2/<oauth_name>/authorize?response_type=redirect`
 
 In most case, `response_type` should be set to "redirect" because OAuth requires a
 redirection to a thrid-party server and redirects you back to the server. `cookie`
 should be set to true because you must do so preserve the state during redirections. The
 user will be redirected to the `redirect_url` given in the response.
+
+#### Check Login Status
 
 After the redirection, you can call the API:
 
