@@ -10,6 +10,7 @@ theme:
     - navigation.tabs.sticky
 plugins:
   - search
+  - render_swagger
 markdown_extensions:
   - admonition
   - abbr
@@ -32,10 +33,10 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.keys
-  - pymdownx.magiclink:
-      repo_url_shorthand: true
-      user: squidfunk
-      repo: mkdocs-material
+#  - pymdownx.magiclink:
+#      repo_url_shorthand: true
+#      user: squidfunk
+#      repo: mkdocs-material
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.snippets:

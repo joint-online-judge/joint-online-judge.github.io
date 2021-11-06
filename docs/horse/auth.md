@@ -169,11 +169,18 @@ the register form is:
 
 `oauth_name` and `oauth_account_id` must be provided together and match exactly what is
 defined in JWT if this is a register by OAuth. You should use `oauth_name` in JWT
-as `oauth_name` in the form and `sub` in JWT as `oauth_account_id` in the form. You can
-omit any of `username` and `email` so that the server will use the same values in JWT (
-but it's possible that `username` and/or `email` is already registered and in this case
-you should notify the user to bind the account instead of register a new one)
-. `password` can also be omitted in a register by OAuth and the user may set it later
+as `oauth_name` in the form and `sub` in JWT as `oauth_account_id` in the form. 
+
+You can omit any of `username` and `email` so that the server will use the same values 
+in JWT. It's possible that `username` is already registered, the user must provide a 
+new one in this case.
+
+Note: `email` must be same as the primary email of the oauth account (the user can not 
+change it), so it's recommended that you always omit it in the form.
+If `email` is already registered, you should notify the user to bind the 
+account instead of register a new one.
+
+`password` can also be omitted in a register by OAuth and the user may set it later
 because the user can log in the account with OAuth now. A minimal example of the
 register form is:
 
@@ -188,8 +195,8 @@ You can also provide a full register form:
 
 ```json
 {
-  "username": "liuyh615",
-  "email": "liuyh615@126.com",
+  "username": "another_username",
+  "email": "liuyh615@sjtu.edu.cn",
   "password": "drowssap",
   "oauth_name": "jaccount",
   "oauth_account_id": "006182C2-0B74-4FF6-9C1B-BEE57FF5076A"
