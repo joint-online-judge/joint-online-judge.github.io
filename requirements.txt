@@ -1,2 +1,2 @@
-mkdocs-material
+mkdocs-material>=8.1.2
 mkdocs-render-swagger-plugin
