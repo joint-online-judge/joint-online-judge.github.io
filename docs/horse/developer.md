@@ -35,53 +35,60 @@ We recommend you to use [Docker](https://docs.docker.com/get-started/overview/) 
     For Docker Compose, please read this [guide](https://docs.docker.com/compose/install/) 
     to install it.
 
+## Clone Repositories
+
+You can create a directory `joj` and clone the repositories.
+
+!!! quote "Command"
+
+    ```bash
+    mkdir -p joj && cd joj
+    git clone git@github.com:joint-online-judge/horse.git
+    git clone git@github.com:joint-online-judge/joj-deploy-lite.git
+    ```
 
 
 ## Setup All Services Locally
 
-### Deployment (All Services)
-
-Create a folder which will contain the compose files and an environment file.
+### Related files
 
 #### docker-compose.yml
 
-Create a file called `docker-compose.yml` in the folder.
+[This file](https://github.com/joint-online-judge/joj-deploy-lite/blob/master/docker-compose.yml) contains all services of JOJ 2.0. Usually you don't need to modify it. You can overwrite the settings in other files.
 
-??? summary "Copy and Paste"
-    
-    ``` yaml title="docker-compose.yml" linenums="1"
-    --8<-- "docs/horse/docker-compose.yml"
-    ```
+#### docker-compose-ui.yml
 
+[This file](https://github.com/joint-online-judge/joj-deploy-lite/blob/master/docker-compose-ui.yml) contains web uis for the services (redis, postgres, etc.).
 
-#### docker-compose-dev.yml (Optional, Recommended)
+The usernames and passwords are set in the compose files, you can use them to login.
 
-Create a file called `docker-compose-dev.yml` in the folder. You can override some settings in this file.
+#### docker-compose-dev.yml
+
+[This file](https://github.com/joint-online-judge/joj-deploy-lite/blob/master/docker-compose-dev.yml) contains some development settings. Usually you don't need to modify it as well because the environment variables can be set in the `.env` file. 
 
 ???+ example
 
-    This is a recommended `docker-compose-dev.yml` file:
+    This is a our shipped `docker-compose-dev.yml` file:
 
     ``` yaml title="docker-compose-dev.yml" linenums="1"
     version: '3'
     services:
       horse:
-        image: ghcr.io/joint-online-judge/horse:latest
+        image: ghcr.io/joint-online-judge/horse:test
         environment:
           DEBUG: "true"
           OAUTH_GITHUB: "true"
-          OAUTH_GITHUB_ID: 78****************30
-          OAUTH_GITHUB_SECRET: 2b************************************95
+          OAUTH_GITHUB_ID: ${OAUTH_GITHUB_ID:-}
+          OAUTH_GITHUB_SECRET: ${OAUTH_GITHUB_SECRET:-}
         volumes:
           - ${HORSE_SRC}/joj/horse:/root/joj/horse
           - ${HORSE_SRC}/migrations:/root/migrations
     ```
 
-We enable the debug mode for auto reloading and set the GitHub OAuth2 client id and secret.
+    We enable the debug mode for auto reloading and set the GitHub OAuth2 client id and secret.
 
-!!! note
+    You are recommended to overwrite the environment variables `OAUTH_GITHUB_ID`, `OAUTH_GITHUB_SECRET` and `HORSE_SRC` in the `.env file. 
 
-    For inner developers, please find the client id and secret in the `deploy` channel on `Slack`.
 
 #### .env (Optional)
 
@@ -89,45 +96,39 @@ Create a file called `.env` in the folder to override the environments in `docke
 
 ???+ example
 
-    You need to override `HORSE_SRC`, which is set in `docker-compose-dev.yml`.
+    You need to override `OAUTH_GITHUB_ID`, `OAUTH_GITHUB_SECRET` and `HORSE_SRC`, which is set in `docker-compose-dev.yml`.
 
     ``` dotenv title=".env" linenums="1"
-    HORSE_SRC=/the/path/to/your/source/directory/of/horse
+    OAUTH_GITHUB_ID=78****************30
+    OAUTH_GITHUB_SECRET=2b************************************95
+    HORSE_SRC=/path/to/horse
     ```
+
+!!! note
+
+    For inner developers, please find the client id and secret in the `deploy` channel on `Slack`.
 
 If you don't use the `.env` file, you can also hard-code it in `docker-compose-dev.yml`.
 
-#### Deployment Command
+
+### Deployment Command
+
+In the `joj-deploy-lite` repository, you can find a script `start.sh`, which can be used to build and start the services automatically.
 
 !!! quote "Command"
 
     ```bash
-    docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d
+    bash start.sh dev
     ```
 
-
-### Deployment (All Services + Web UI)
-
-We also configured some web ui for each service (redis, postgres, etc.)
-You can add the file `docker-compose-ui.yml` in the folder to enable them.
-
-??? summary "Copy and Paste"
-
-    ``` yaml title="docker-compose-ui.yml" linenums="1"
-    --8<-- "docs/horse/docker-compose-ui.yml"
-    ```
-
-The usernames and passwords are set in the compose files, you can use them to login.
-
-Change the deployment command to
-
-!!! quote "Command"
-
-    ```bash
-    docker-compose -f docker-compose.yml -f docker-compose-dev.yml -f docker-compose-ui.yml up -d
-    ```
-
-
-## Connect to the Services on the Staging Server
+## Setup Horse Locally and Connect to the Remote Staging Server
 
 bmm will complete this part?
+
+### Deployment Command
+
+!!! quote "Command"
+
+    ```bash
+    bash start.sh stage
+    ```
