@@ -3,9 +3,8 @@
 As a developer of `horse`, usually you need to start the `horse` FastAPI server locally 
 to test the code you write.
 
-`horse` supports Windows, Linux and macOS, you can follow the instructions in the 
-introduction  to start the server, and then setup all services one by one manually. 
-However, this is very complicated and hugely discouraged.
+`horse` supports Windows, Linux and macOS, you can setup all services one by one 
+manually. However, this is very complicated and hugely discouraged.
 
 We recommend you to use [Docker](https://docs.docker.com/get-started/overview/) and 
 [Docker Compose](https://docs.docker.com/compose/) to deploy the services.
@@ -24,7 +23,8 @@ We recommend you to use [Docker](https://docs.docker.com/get-started/overview/) 
     You don't need to install Docker Compose because it is already shipped with 
     Docker Desktop. However, for WSL users, Docker Compose is installed on Windows,
     not WSL, you may need to install it manually (refer to the guide for Linux).
-    
+
+    **WARNING**: DO NOT run the start.sh mentioned below or start any docker container in Windows, do these in WSL2. Or the data in volumes will get lost during development.
 
 === "Linux"
 
@@ -110,6 +110,7 @@ Create a file called `.env` in the folder to override the environments in `docke
 
 If you don't use the `.env` file, you can also hard-code it in `docker-compose-dev.yml`.
 
+Check the README file in `joj-deploy-lite`, you can set `HORSE_SRC` in the `.env` file for convenience.
 
 ### Deployment Command
 
@@ -123,12 +124,32 @@ In the `joj-deploy-lite` repository, you can find a script `start.sh`, which can
 
 ## Setup Horse Locally and Connect to the Remote Staging Server
 
-bmm will complete this part?
-
 ### Deployment Command
 
 !!! quote "Command"
 
     ```bash
     bash start.sh stage
+    ```
+
+## Setup Environment for IntelliSense & Testing
+
+If you do not want to attach to the Docker container each time for an full Python environment that can let your code editor provide intellisense, you may need to install the related Python packages via [Poetry](https://python-poetry.org/).
+
+We use [pre-commit](https://pre-commit.com/) to do pre-commit checks, do not forget to install it before committing.
+
+!!! quote "Command"
+
+    ```bash
+    curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - # install poetry
+    poetry install -E test # install all packages
+    poetry run pre-commit install # install pre-commit hooks
+    ```
+
+We also use [pytest](https://docs.pytest.org/) for testing. You can run the test inside the Docker container.
+
+!!! quote "Command"
+
+    ```bash
+    poetry run pytest -svv
     ```
