@@ -64,7 +64,7 @@ The usernames and passwords are set in the compose files, you can use them to lo
 
 #### docker-compose-dev.yml
 
-[This file](https://github.com/joint-online-judge/joj-deploy-lite/blob/master/docker-compose-dev.yml) contains some development settings. Usually you don't need to modify it as well because the environment variables can be set in the `.env` file. 
+[This file](https://github.com/joint-online-judge/joj-deploy-lite/blob/master/docker-compose-dev.yml) contains some development settings. Usually you don't need to modify it as well because the environment variables can be set in the `.env` file.
 
 ???+ example
 
@@ -146,10 +146,10 @@ We use [pre-commit](https://pre-commit.com/) to do pre-commit checks, do not for
     poetry run pre-commit install # install pre-commit hooks
     ```
 
-We also use [pytest](https://docs.pytest.org/) for testing. You can run the test inside the Docker container.
+We also use [pytest](https://docs.pytest.org/) for testing. You can run the test inside the Docker container, only after you have setup all services locally.
 
 !!! quote "Command"
 
     ```bash
-    poetry run pytest -svv
+    docker exec -it `docker ps -q --filter ancestor=ghcr.io/joint-online-judge/horse:test` pytest
     ```
