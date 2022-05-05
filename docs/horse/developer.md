@@ -37,12 +37,12 @@ We recommend you to use [Docker](https://docs.docker.com/get-started/overview/) 
 
 ## Clone Repositories
 
-You can create a directory `joj` and clone the repositories.
+You can create a directory `joint-online-judge` and clone the repositories.
 
 !!! quote "Command"
 
     ```bash
-    mkdir -p joj && cd joj
+    mkdir -p joint-online-judge && cd joint-online-judge
     git clone git@github.com:joint-online-judge/horse.git
     git clone git@github.com:joint-online-judge/joj-deploy-lite.git
     ```
@@ -96,12 +96,10 @@ Create a file called `.env` in the folder to override the environments in `docke
 
 ???+ example
 
-    You need to override `OAUTH_GITHUB_ID`, `OAUTH_GITHUB_SECRET` and `HORSE_SRC`, which is set in `docker-compose-dev.yml`.
+    You need to override `HORSE_SRC`, which is set in `docker-compose-dev.yml`.
 
     ``` dotenv title=".env" linenums="1"
-    OAUTH_GITHUB_ID=78****************30
-    OAUTH_GITHUB_SECRET=2b************************************95
-    HORSE_SRC=/path/to/horse
+    HORSE_SRC=/abspath/to/horse
     ```
 
 !!! note
@@ -119,7 +117,7 @@ In the `joj-deploy-lite` repository, you can find a script `start.sh`, which can
 !!! quote "Command"
 
     ```bash
-    bash start.sh dev
+    ./start.sh dev
     ```
 
 ## Setup Horse Locally and Connect to the Remote Staging Server
@@ -129,7 +127,7 @@ In the `joj-deploy-lite` repository, you can find a script `start.sh`, which can
 !!! quote "Command"
 
     ```bash
-    bash start.sh stage
+    ./start.sh stage
     ```
 
 ## Setup Environment for IntelliSense & Testing
@@ -151,5 +149,5 @@ We also use [pytest](https://docs.pytest.org/) for testing. You can run the test
 !!! quote "Command"
 
     ```bash
-    docker exec -it `docker ps -q --filter ancestor=ghcr.io/joint-online-judge/horse:test` pytest
+    docker exec -it horse pytest
     ```
