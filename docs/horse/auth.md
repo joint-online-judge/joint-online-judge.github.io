@@ -47,7 +47,7 @@ First, you should call this api to get a redirect url for the OAuth process:
 `GET /api/v1/oauth2/<oauth_name>/authorize?response_type=redirect`
 
 In most case, `response_type` should be set to "redirect" because OAuth requires a
-redirection to a thrid-party server and redirects you back to the server. `cookie`
+redirection to a third-party server and redirects you back to the server. `cookie`
 should be set to true because you must do so preserve the state during redirections. The
 user will be redirected to the `redirect_url` given in the response.
 
