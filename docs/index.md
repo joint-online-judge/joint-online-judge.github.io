@@ -8,16 +8,17 @@ Check the docs about [grading with JOJ 1.0](/GradeWithJOJ)
 
 JOJ 2.0 is consist of:
 
-+ mouse (moss)
-+ cattle (frontend)
-+ tiger (judger)
-+ rabbit (mq)
-+ horse (backend)
-+ 
-+ 
-+
-+
-+
+- cattle (frontend)
+- tiger (judger)
+- horse (backend)
+- elephant (problem configuration)
+- ...
+- mouse (moss)
+- rabbit (mq)
+
+## Developer's Guide
+
+Check [Developer's Guide](./developer.md).
 
 ## GitHub Workflow
 
@@ -49,8 +50,8 @@ Please refer to the Angular commit message [format](https://github.com/angular/a
 
 !!! note
 
-    Usually, a pull request replies to an issue, a feature, or a bug fix. Do not include dozens of code in a single pull request. Typically, 250 lines is the maximum of a single pull request (exceeding a little is acceptable). 
+    Usually, a pull request replies to an issue, a feature, or a bug fix. Do not include dozens of code in a single pull request. Typically, 250 lines is the maximum of a single pull request (exceeding a little is acceptable).
 
 Start a pull request after you have finished some coding. The code will be merged after the reviewers accepted your code.
-    
+
 <img src="assets/pr.png" width="90%" />
