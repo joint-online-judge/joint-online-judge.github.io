@@ -78,11 +78,22 @@ Create a file called `.env` in the folder to override the environments in `docke
 
 [This file](https://github.com/joint-online-judge/joj-deploy-lite/blob/master/docker-compose.yml) contains all services of JOJ 2.0. Usually you don't need to modify it. You can overwrite the settings in other files.
 
+It uses port 34765 to run horse, you can access it with <http://127.0.0.1:34765>.
+
 #### docker-compose-ui.yml
 
-[This file](https://github.com/joint-online-judge/joj-deploy-lite/blob/master/docker-compose-ui.yml) contains web UIs for the services (redis, postgres, etc.).
+[This file](https://github.com/joint-online-judge/joj-deploy-lite/blob/master/docker-compose-ui.yml) contains Web UIs for the services (redis, postgres, etc.).
 
 The usernames and passwords are set in the compose files, you can use them to login.
+
+It uses many extra ports to run Web UIs.
+
+- <http://127.0.0.1:34766>: lakeFS (lakeFS object storage for files)
+- <http://127.0.0.1:34767>: Adminer (PostgreSQL database)
+- <http://127.0.0.1:34768>: Flower (Celery task queue)
+- <http://127.0.0.1:34769>: redis Commander (Redis cache, message broker)
+- <http://127.0.0.1:34770>: RabbitMQ (RabbitMQ message queue)
+- <http://127.0.0.1:34771>: Dozzle (Log viewer for Docker)
 
 #### docker-compose-dev.yml
 
