@@ -19,8 +19,7 @@ We recommend you to use [Docker](https://docs.docker.com/get-started/overview/) 
 
     On Windows, it's recommended to use Docker Desktop in WSL2 mode, and you can **enable
     the WSL2 integration**. Follow the steps [here](https://docs.docker.com/desktop/windows/wsl/),
-    while pay special attention to [Enabling Docker support in WSL 2 distros]
-    (https://docs.docker.com/desktop/windows/wsl/#enabling-docker-support-in-wsl-2-distros).
+    while pay special attention to [Enabling Docker support in WSL 2 distros](https://docs.docker.com/desktop/windows/wsl/#enabling-docker-support-in-wsl-2-distros).
 
     You don't need to install Docker Compose because it is already shipped with
     Docker Desktop.
