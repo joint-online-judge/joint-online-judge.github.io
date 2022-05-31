@@ -49,13 +49,14 @@ You can create a directory `joint-online-judge` and clone the repositories.
     git clone git@github.com:joint-online-judge/elephant.git
     git clone git@github.com:joint-online-judge/tiger.git
     git clone git@github.com:joint-online-judge/joj-deploy-lite.git
+    cd joj-deploy-lite
     ```
 
 ## Setup All Services Locally
 
 ### .env
 
-Create a file called `.env` in the folder to override the environments in `docker-compose.yml` and `docker-compose-dev.yml`.
+Create a file called `.env` in `joj-deploy-lite` to override the environments in `docker-compose.yml` and `docker-compose-dev.yml`.
 
 ???+ example
 
@@ -111,15 +112,7 @@ For China Mainland developers, you may need a proxy to speedup the whole precedu
     ./start.sh dev
     ```
 
-## Setup Horse Locally and Connect to the Remote Staging Server
-
-### Deployment Command
-
-!!! quote "Command"
-
-    ```bash
-    ./start.sh stage
-    ```
+Once the command is finished, check <http://127.0.0.1:34765> and other Web UI ports to ensure it works well.
 
 ## Setup Environment for IntelliSense & Pre-commit check & Test
 
