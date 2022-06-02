@@ -159,3 +159,20 @@ only after you have setup all services locally.
     docker exec -it horse pytest
     docker exec -it tiger-1 pytest
     ```
+
+## Create users
+
+Now you can create users in horse and tiger to make it works correctly.
+
+0. Make sure in `joj-deploy-lite`, `./start.sh dev` is run and successfully exits.
+
+1. Go to <http://127.0.0.1:34765/api/v1/docs#/auth/v1_register> and register a new user for your self in horse. You only need to provide email, username, and password in Request Body. e.g. `{"username": "uname", "password": "passwd", "email": "admin@joint.online.judge"}`  
+And by clicking "Execute", it will create a new user for you, and if it is the first and the only user, the user will be set as a root user.
+
+2. Go to <http://127.0.0.1:34765/api/v1/docs#/auth/v1_login> and login with username and password you just filled in. For the example above, that is `uname` and `passwd`.
+
+3. Go to <http://127.0.0.1:34765/api/v1/docs#/admin/v1_create_judger> to create judgers. And fill in `TIGER_1_USERNAME`, `TIGER_1_PASSWORD`, `TIGER_1_LAKEFS_USERNAME`, `TIGER_1_LAKEFS_PASSWORD`, `TIGER_2_USERNAME`, `TIGER_2_PASSWORD`, `TIGER_2_LAKEFS_USERNAME`, `TIGER_2_LAKEFS_PASSWORD` in `.env` according to the response.
+
+4. In `joj-deploy-lite`, run `./start.sh dev` again. And wait a few seconds until everything is started and connected.
+
+5. Go to <http://127.0.0.1:34765/api/v1/docs#/admin/v1_admin_list_judgers>, and you will find 2 judgers and both of them have `"isAlive": true`. (**NOTE**: the field you need to check should be `isAlive` instead of `isActive`.) And now you have 2 runnable judgers.
