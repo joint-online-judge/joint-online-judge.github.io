@@ -1,0 +1,1284 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../GradeWithJOJ/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.9">
+    
+    
+      
+        <title>Developer's Guide - Joint Online Judge</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#developers-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Joint Online Judge" class="md-header__button md-logo" aria-label="Joint Online Judge" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Joint Online Judge
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Developer's Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/joint-online-judge/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    joint-online-judge
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Joint Online Judge
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Developer's Guide
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../GradeWithJOJ/" class="md-tabs__link">
+        GradeWithJOJ
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../cattle/learning/" class="md-tabs__link">
+        Cattle
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../elephant/" class="md-tabs__link">
+        Elephant
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../horse/" class="md-tabs__link">
+        Horse
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../tiger/" class="md-tabs__link">
+        Tiger
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Joint Online Judge" class="md-nav__button md-logo" aria-label="Joint Online Judge" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Joint Online Judge
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/joint-online-judge/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    joint-online-judge
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Joint Online Judge
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Developer's Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Developer's Guide
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-docker-and-docker-compose" class="md-nav__link">
+    Install Docker and Docker Compose
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone-repositories" class="md-nav__link">
+    Clone Repositories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-all-services-locally" class="md-nav__link">
+    Setup All Services Locally
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup All Services Locally">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#env" class="md-nav__link">
+    .env
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-related-files" class="md-nav__link">
+    Other Related files
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Related files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-composeyml" class="md-nav__link">
+    docker-compose.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-uiyml" class="md-nav__link">
+    docker-compose-ui.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-devyml" class="md-nav__link">
+    docker-compose-dev.yml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-command" class="md-nav__link">
+    Deployment Command
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-environment-for-intellisense-pre-commit-check-test" class="md-nav__link">
+    Setup Environment for IntelliSense &amp; Pre-commit check &amp; Test
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Environment for IntelliSense &amp; Pre-commit check &amp; Test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intellisense" class="md-nav__link">
+    IntelliSense
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit-check" class="md-nav__link">
+    Pre-commit check
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-users" class="md-nav__link">
+    Create users
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          GradeWithJOJ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          GradeWithJOJ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GradeWithJOJ/" class="md-nav__link">
+        Grade with JOJ 1.0
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GradeWithJOJ/1.Create%20Domain/" class="md-nav__link">
+        Create Domain
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GradeWithJOJ/2.Member%20Management/" class="md-nav__link">
+        Member managemet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GradeWithJOJ/3.Create%20and%20Set%20Problem/" class="md-nav__link">
+        Create and set problem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GradeWithJOJ/4.Create%20and%20Set%20Homework/" class="md-nav__link">
+        Create and Set Homework
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GradeWithJOJ/5.Judge/" class="md-nav__link">
+        Judge
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GradeWithJOJ/6.Export/" class="md-nav__link">
+        Export
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GradeWithJOJ/7.Moss/" class="md-nav__link">
+        Moss Code Check
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GradeWithJOJ/8.Contact/" class="md-nav__link">
+        Contact
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Cattle
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Cattle
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cattle/learning/" class="md-nav__link">
+        Learning Path
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cattle/structure/" class="md-nav__link">
+        Project Structure
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Elephant
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Elephant
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elephant/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Horse
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Horse
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../horse/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../horse/api/" class="md-nav__link">
+        API Reference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../horse/auth/" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          Tiger
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tiger
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tiger/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-docker-and-docker-compose" class="md-nav__link">
+    Install Docker and Docker Compose
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone-repositories" class="md-nav__link">
+    Clone Repositories
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-all-services-locally" class="md-nav__link">
+    Setup All Services Locally
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup All Services Locally">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#env" class="md-nav__link">
+    .env
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-related-files" class="md-nav__link">
+    Other Related files
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Related files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-composeyml" class="md-nav__link">
+    docker-compose.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-uiyml" class="md-nav__link">
+    docker-compose-ui.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-devyml" class="md-nav__link">
+    docker-compose-dev.yml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-command" class="md-nav__link">
+    Deployment Command
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-environment-for-intellisense-pre-commit-check-test" class="md-nav__link">
+    Setup Environment for IntelliSense &amp; Pre-commit check &amp; Test
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Environment for IntelliSense &amp; Pre-commit check &amp; Test">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intellisense" class="md-nav__link">
+    IntelliSense
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit-check" class="md-nav__link">
+    Pre-commit check
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-users" class="md-nav__link">
+    Create users
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="developers-guide">Developer's Guide<a class="headerlink" href="#developers-guide" title="Permanent link">&para;</a></h1>
+<p>As a developer of joint-online-judge frontend, check <a href="https://github.com/joint-online-judge/cattle">Cattle's README</a>.</p>
+<p>As a developer of joint-online-judge backend &amp; judger, usually you need to start the service locally
+to test the code you write.</p>
+<p><code>horse</code>, <code>elephant</code>, and <code>tiger</code> supports Windows, Linux and macOS, you can setup all services one by one
+manually. However, this is very complicated and hugely discouraged.</p>
+<p>We recommend you to use <a href="https://docs.docker.com/get-started/overview/">Docker</a> and
+<a href="https://docs.docker.com/compose/">Docker Compose</a> to deploy the services.</p>
+<h2 id="install-docker-and-docker-compose">Install Docker and Docker Compose<a class="headerlink" href="#install-docker-and-docker-compose" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Windows/macOS</label><label for="__tabbed_1_2">Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>You can use <a href="https://docs.docker.com/desktop/">Docker Desktop</a>.</p>
+<p>On Windows, it's recommended to use Docker Desktop in WSL2 mode, and you can <strong>enable
+the WSL2 integration</strong>. Follow the steps <a href="https://docs.docker.com/desktop/windows/wsl/">here</a>,
+while pay special attention to <a href="https://docs.docker.com/desktop/windows/wsl/#enabling-docker-support-in-wsl-2-distros">Enabling Docker support in WSL 2 distros</a>.</p>
+<p>You don't need to install Docker Compose because it is already shipped with
+Docker Desktop.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>DO NOT</strong> run the start.sh mentioned below or start any docker container in Windows,
+do these in WSL2. Or the data in volumes will get lost during development.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>You can install <a href="https://docs.docker.com/engine/install/">Docker Engine</a>
+directly. There is a guide for most distributions, for example, the guide for
+<a href="https://docs.docker.com/engine/install/ubuntu/">Ubuntu</a>.</p>
+<p>For Docker Compose, please read this <a href="https://docs.docker.com/compose/install/">guide</a>
+to install it.</p>
+</div>
+</div>
+</div>
+<h2 id="clone-repositories">Clone Repositories<a class="headerlink" href="#clone-repositories" title="Permanent link">&para;</a></h2>
+<p>You can create a directory <code>joint-online-judge</code> and clone the repositories.</p>
+<div class="admonition quote">
+<p class="admonition-title">Command</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>joint-online-judge<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>joint-online-judge
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:joint-online-judge/horse.git
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:joint-online-judge/elephant.git
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:joint-online-judge/tiger.git
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:joint-online-judge/joj-deploy-lite.git
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nb">cd</span><span class="w"> </span>joj-deploy-lite
+</code></pre></div>
+</div>
+<h2 id="setup-all-services-locally">Setup All Services Locally<a class="headerlink" href="#setup-all-services-locally" title="Permanent link">&para;</a></h2>
+<h3 id="env">.env<a class="headerlink" href="#env" title="Permanent link">&para;</a></h3>
+<p>Create a file called <code>.env</code> in <code>joj-deploy-lite</code> to override the environments in <code>docker-compose.yml</code> and <code>docker-compose-dev.yml</code>.</p>
+<details class="example" open="open">
+<summary>Example</summary>
+<p>You need to override <code>HORSE_SRC</code>, <code>TIGER_SRC</code>, and <code>ELEPHANT_SRC</code> to start the project, other variables are optional.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.env</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>HORSE_SRC=/abspath/to/horse
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>ELEPHANT_SRC=/abspath/to/elephant
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>TIGER_SRC=/abspath/to/tiger
+</code></pre></div></td></tr></table></div>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For inner developers, please find the client id and secret in the <code>deploy</code> channel on <code>Slack</code>.</p>
+</div>
+<h3 id="other-related-files">Other Related files<a class="headerlink" href="#other-related-files" title="Permanent link">&para;</a></h3>
+<h4 id="docker-composeyml">docker-compose.yml<a class="headerlink" href="#docker-composeyml" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/joint-online-judge/joj-deploy-lite/blob/master/docker-compose.yml">This file</a> contains all services of JOJ 2.0. Usually you don't need to modify it. You can overwrite the settings in other files.</p>
+<p>It uses port 34765 to run horse, you can access it with <a href="http://127.0.0.1:34765">http://127.0.0.1:34765</a>.</p>
+<h4 id="docker-compose-uiyml">docker-compose-ui.yml<a class="headerlink" href="#docker-compose-uiyml" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/joint-online-judge/joj-deploy-lite/blob/master/docker-compose-ui.yml">This file</a> contains Web UIs for the services (redis, postgres, etc.).</p>
+<p>The usernames and passwords are set in the compose files, you can use them to login.</p>
+<p>It uses many extra ports to run Web UIs.</p>
+<ul>
+<li><a href="http://127.0.0.1:34766">http://127.0.0.1:34766</a>: lakeFS (lakeFS object storage for files)</li>
+<li><a href="http://127.0.0.1:34767">http://127.0.0.1:34767</a>: Adminer (PostgreSQL database)</li>
+<li><a href="http://127.0.0.1:34768">http://127.0.0.1:34768</a>: Flower (Celery task queue)</li>
+<li><a href="http://127.0.0.1:34769">http://127.0.0.1:34769</a>: redis Commander (Redis cache, message broker)</li>
+<li><a href="http://127.0.0.1:34770">http://127.0.0.1:34770</a>: RabbitMQ (RabbitMQ message queue)</li>
+<li><a href="http://127.0.0.1:34771">http://127.0.0.1:34771</a>: Dozzle (Log viewer for Docker)</li>
+</ul>
+<h4 id="docker-compose-devyml">docker-compose-dev.yml<a class="headerlink" href="#docker-compose-devyml" title="Permanent link">&para;</a></h4>
+<p><a href="https://github.com/joint-online-judge/joj-deploy-lite/blob/master/docker-compose-dev.yml">This file</a> contains some development settings. Usually you don't need to modify it as well because the environment variables can be set in the <code>.env</code> file.</p>
+<h3 id="deployment-command">Deployment Command<a class="headerlink" href="#deployment-command" title="Permanent link">&para;</a></h3>
+<p>In the <code>joj-deploy-lite</code> repository, you can find a script <code>start.sh</code>, which can be used to build and start the services automatically.
+Be patient, all images have a total size of ~5GB.</p>
+<p>For China Mainland developers, you may need a proxy to speedup the whole precedure.</p>
+<div class="admonition quote">
+<p class="admonition-title">Command</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./start.sh<span class="w"> </span>dev
+</code></pre></div>
+</div>
+<p>Once the command is finished, check <a href="http://127.0.0.1:34765">http://127.0.0.1:34765</a> and other Web UI ports to ensure it works well.</p>
+<h2 id="setup-environment-for-intellisense-pre-commit-check-test">Setup Environment for IntelliSense &amp; Pre-commit check &amp; Test<a class="headerlink" href="#setup-environment-for-intellisense-pre-commit-check-test" title="Permanent link">&para;</a></h2>
+<h3 id="intellisense">IntelliSense<a class="headerlink" href="#intellisense" title="Permanent link">&para;</a></h3>
+<p>If you do not want to attach to the Docker container each time for an full Python environment that can let your code editor provide intellisense, you may need to install the related Python packages via <a href="https://python-poetry.org/">Poetry</a>.</p>
+<div class="admonition quote">
+<p class="admonition-title">Command</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py<span class="w"> </span><span class="p">|</span><span class="w"> </span>python<span class="w"> </span>-<span class="w"> </span><span class="c1"># install poetry</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># change directory to horse or elephant or tiger</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>poetry<span class="w"> </span>install<span class="w"> </span>-E<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="c1"># install all packages</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>poetry<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>install<span class="w"> </span><span class="c1"># install pre-commit hooks to poetry environment</span>
+</code></pre></div>
+</div>
+<h3 id="pre-commit-check">Pre-commit check<a class="headerlink" href="#pre-commit-check" title="Permanent link">&para;</a></h3>
+<p>We use <a href="https://pre-commit.com/">pre-commit</a> to do pre-commit checks, do not forget to install it before committing.</p>
+<p>Though you have installed pre-commit to poetry environment in previous step, but to use it,
+you need to commit in poetry environment. It is a bit complicated, e.g.,</p>
+<div class="admonition quote">
+<p class="admonition-title">Command</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>poetry<span class="w"> </span>run<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;&lt;commit message&gt;&quot;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># or enter the poetry shell first</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>poetry<span class="w"> </span>shell
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;&lt;commit message&gt;&quot;</span>
+</code></pre></div>
+</div>
+<p>You can choose to install pre-commit in your local environment by <code>pip install pre-commit</code>, then change directory to
+horse or elephant or tiger and install the hook by <code>pre-commit install</code>.</p>
+<h3 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h3>
+<p>We also use <a href="https://docs.pytest.org/">pytest</a> for testing. You can run the test inside the Docker container,
+only after you have setup all services locally.</p>
+<div class="admonition quote">
+<p class="admonition-title">Command</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>horse<span class="w"> </span>pytest
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>tiger-1<span class="w"> </span>pytest
+</code></pre></div>
+</div>
+<h2 id="create-users">Create users<a class="headerlink" href="#create-users" title="Permanent link">&para;</a></h2>
+<p>Now you can create users in horse and tiger to make it works correctly.</p>
+<ol>
+<li>
+<p>Make sure in <code>joj-deploy-lite</code>, <code>./start.sh dev</code> is run and successfully exits.</p>
+</li>
+<li>
+<p>Go to <a href="http://127.0.0.1:34765/api/v1/docs#/auth/v1_register">http://127.0.0.1:34765/api/v1/docs#/auth/v1_register</a> and register a new user for your self in horse. You only need to provide email, username, and password in Request Body. e.g. <code>{"username": "uname", "password": "passwd", "email": "admin@joint.online.judge"}</code><br />
+And by clicking "Execute", it will create a new user for you, and if it is the first and the only user, the user will be set as a root user.</p>
+</li>
+<li>
+<p>Go to <a href="http://127.0.0.1:34765/api/v1/docs#/auth/v1_login">http://127.0.0.1:34765/api/v1/docs#/auth/v1_login</a> and login with username and password you just filled in. For the example above, that is <code>uname</code> and <code>passwd</code>.</p>
+</li>
+<li>
+<p>Go to <a href="http://127.0.0.1:34765/api/v1/docs#/admin/v1_create_judger">http://127.0.0.1:34765/api/v1/docs#/admin/v1_create_judger</a> to create judgers. And fill in <code>TIGER_1_USERNAME</code>, <code>TIGER_1_PASSWORD</code>, <code>TIGER_1_LAKEFS_USERNAME</code>, <code>TIGER_1_LAKEFS_PASSWORD</code>, <code>TIGER_2_USERNAME</code>, <code>TIGER_2_PASSWORD</code>, <code>TIGER_2_LAKEFS_USERNAME</code>, <code>TIGER_2_LAKEFS_PASSWORD</code> in <code>.env</code> according to the response.</p>
+</li>
+<li>
+<p>In <code>joj-deploy-lite</code>, run <code>./start.sh dev</code> again. And wait a few seconds until everything is started and connected.</p>
+</li>
+<li>
+<p>Go to <a href="http://127.0.0.1:34765/api/v1/docs#/admin/v1_admin_list_judgers">http://127.0.0.1:34765/api/v1/docs#/admin/v1_admin_list_judgers</a>, and you will find 2 judgers and both of them have <code>"isAlive": true</code>. (<strong>NOTE</strong>: the field you need to check should be <code>isAlive</code> instead of <code>isActive</code>.) And now you have 2 runnable judgers.</p>
+</li>
+</ol>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fac441b0.min.js"></script>
+      
+    
+  </body>
+</html>
